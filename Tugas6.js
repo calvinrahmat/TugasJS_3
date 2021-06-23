@@ -14,16 +14,17 @@ async function api() {
 	const data_api = await res.json();
 	return data_api;
 }
+
 let data2 = api();
 
 async function objectCompare(data1, data2) {
-	originalData = Object.entries(data1);
+	let originalData = Object.entries(data1);
 
-	apiData = Object.entries(data2);
+	let apiData = Object.entries(data2);
 
 	for (let i = 0; i < originalData.length; i++) {
-		array1 = originalData[i];
-		array2 = apiData[i];
+		let array1 = originalData[i];
+		let array2 = apiData[i];
 		if (array1 != array2) {
 			result = 'false';
 		} else {
