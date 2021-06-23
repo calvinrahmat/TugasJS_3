@@ -9,7 +9,7 @@ let data = {
 	avatar: 'https://reqres.in/',
 };
 
-async function objectCompare() {
+async function objectCompare(data1, data2) {
 	const res = await fetch(api_url);
 	const data_api = await res.json();
 	let email_api = data_api.data.email;
