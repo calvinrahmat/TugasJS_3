@@ -75,13 +75,12 @@ const Person = [
 
 const personFilter = (gender) => {
 	console.log('generating data ...');
-	return new Promise((personFilter('male')
-	// 	.then((message) => {
-	// 		console.log(message);
-	// 	})
-	// 	.catch((error) => {
-	// 		console.log(error);
-	// 	});
+	return new Promise((resolve, reject) => {
+		setTimeout(() => {
+			if (gender == 'female') {
+				filtered = Person.filter((y) => {
+					return y.Gender == 'female';
+				});
 				resolve(filtered);
 			} else if (gender == 'male') {
 				filtered = Person.filter((z) => {
@@ -96,9 +95,10 @@ const personFilter = (gender) => {
 };
 
 // personFilter('male')
-// 	.then((message) => {
-// 		console.log(message);
-// 	})
-// 	.catch((error) => {
-// 		console.log(error);
-// 	});
+// .then((message) => {
+// console.log(message);
+// })
+// .catch((error) => {
+// console.log(error);
+// });
+//
