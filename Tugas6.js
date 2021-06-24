@@ -27,7 +27,7 @@ async function objectCompare(data1, data2) {
 	//console.log('data api: ' + b);
 
 	if (a.length != b.length) {
-		return 'False';
+		return console.log('false');
 	} else {
 		for (let i = 0; i < a.length; i++) {
 			if (a[i] !== b[i]) {

@@ -78,12 +78,12 @@ const personFilter = (gender) => {
 	return new Promise((resolve, reject) => {
 		setTimeout(() => {
 			if (gender == 'female') {
-				filtered = Person.filter((y) => {
+				let filtered = Person.filter((y) => {
 					return y.Gender == 'female';
 				});
 				resolve(filtered);
 			} else if (gender == 'male') {
-				filtered = Person.filter((z) => {
+				let filtered = Person.filter((z) => {
 					return z.Gender == 'male';
 				});
 				resolve(filtered);
@@ -95,10 +95,9 @@ const personFilter = (gender) => {
 };
 
 // personFilter('male')
-// .then((message) => {
-// console.log(message);
-// })
-// .catch((error) => {
-// console.log(error);
-// });
-//
+// 	.then((message) => {
+// 		console.log(message);
+// 	})
+// 	.catch((error) => {
+// 		console.log(error);
+// 	});

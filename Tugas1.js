@@ -14,7 +14,7 @@ const cekHariKerja = (day) => {
 	});
 };
 
-//Method then() mengembalikan Promise dan menggunakan dua argumen: fungsi callback untuk kasus sukses dan gagal pada Promise. catch berfungsi untuk menghandle error
+//Method then() mengembalikan Promise dan menggunakan dua argumen: fungsi callback untuk kasus sukses dan gagal pada Promise. Jadi ketika promise itu sudah di penuhi maka then bisa berjalan, tetapi jika then tidak di penuhi, maka rejected lah yang akan tampil (pesan error)
 cekHariKerja('senin')
 	.then((message) => {
 		console.log(`resolve inside THEN: hari ${message} hari kerja`);
