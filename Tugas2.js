@@ -23,7 +23,7 @@ const getmonth = (callback) => {
 	}, 4000);
 };
 
-const displayMonth = async (error, month) => {
+const displayMonth = (error, month) => {
 	try {
 		num = 10;
 		let convert = month.map((y) => y.toUpperCase());
