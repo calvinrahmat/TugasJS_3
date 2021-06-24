@@ -26,12 +26,14 @@ async function objectCompare(data1, data2) {
 	const b = Object.values(data_api.data);
 	//console.log('data api: ' + b);
 
-	if (a.length != b.length) return 'False';
-	else {
-		for (let i = 0; i < a.length; i++)
+	if (a.length != b.length) {
+		return 'False';
+	} else {
+		for (let i = 0; i < a.length; i++) {
 			if (a[i] != b[i]) {
 				return 'False';
 			}
+		}
 		return 'True';
 	}
 }
