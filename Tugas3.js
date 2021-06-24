@@ -1,4 +1,5 @@
 let randomChar = '';
+let randomCharLow = '';
 let randomNumber = '';
 let symbol = '!@#$';
 let char = 'abcdefghijklmnopqrstuvwxyz';
@@ -15,13 +16,16 @@ function checkPass(pass, level) {
 	for (let i = 1; i <= 6 - pass.length; i++) {
 		randomChar += char.charAt(Math.floor(Math.random() * char.length));
 	}
+	for (let i = 1; i <= 4 - pass.length; i++) {
+		randomCharLow += char.charAt(Math.floor(Math.random() * char.length));
+	}
 	for (let i = 0; i < 2; i++) {
 		randomNumber += numbers.charAt(Math.floor(Math.random() * numbers.length));
 	}
 
 	if (level === 'low') {
 		if (length < 6) {
-			result = pass + randomChar + randomNumber;
+			result = pass + randomCharLow + randomNumber;
 			console.log(result);
 		} else {
 			result = pass + randomNumber;
@@ -29,12 +33,8 @@ function checkPass(pass, level) {
 		}
 	}
 	if (level === 'good') {
-		if (length <= 6) {
-			let randomCharGood = '';
-			for (let i = 1; i <= 6 - pass.length; i++) {
-				randomCharGood += char.charAt(Math.floor(Math.random() * char.length));
-			}
-			randomCharGood = newPass + randomCharGood + randomNumber;
+		if (length < 6) {
+			randomCharGood = newPass + randomChar + randomNumber;
 			console.log(randomCharGood);
 		} else {
 			result = pass + randomNumber;
@@ -43,7 +43,7 @@ function checkPass(pass, level) {
 	}
 
 	if (level === 'strong') {
-		if (pass.length <= 6) {
+		if (pass.length < 6) {
 			result = newPass + randomSymbol + randomChar + randomNumber;
 			console.log(result);
 		} else {
@@ -53,4 +53,4 @@ function checkPass(pass, level) {
 	}
 }
 
-checkPass('abcd', 'strong');
+checkPass('abcdef', 'low');
