@@ -7,24 +7,36 @@ let data = {
 	first_name: 'Yve',
 	last_name: 'astrowarden',
 	avatar: 'https://reqres.in/',
+
+	// id: 4,
+	// email: 'eve.holt@reqres.in',
+	// first_name: 'Eve',
+	// last_name: 'Holt',
+	// avatar: 'https://reqres.in/img/faces/4-image.jpg',
 };
 
 async function objectCompare(data1, data2) {
-	const value = Object.values(data1);
+	const a = Object.values(data1);
+	//console.log('data soal: ' + [a]);
 	const res = await fetch(data2);
-	const data_api = await res.json();
-	const value_api = Object.values(data_api.data);
-
-	for (let i = 0; i < value.length - 1; i++) {
-		let array1 = value[i];
-		let array2 = value_api[i];
-		if (array1 != array2) {
-			result = 'false';
-		} else {
-			result = 'true';
-		}
+	if (res.ok) {
+		console.log('fetch success!');
 	}
-	console.log(result);
+	const data_api = await res.json();
+	const b = Object.values(data_api.data);
+	//console.log('data api: ' + b);
+
+	if (a.length != b.length) return 'False';
+	else {
+		for (var i = 0; i < a.length; i++) if (a[i] != b[i]) return 'False';
+		return 'True';
+	}
 }
 
-objectCompare(data, data_api);
+objectCompare(data, data_api)
+	.then((message) => {
+		console.log(message);
+	})
+	.catch((error) => {
+		console.log('terjadi kesalahan: ' + error.name);
+	});
