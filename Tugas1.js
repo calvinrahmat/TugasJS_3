@@ -4,7 +4,6 @@ const cekHariKerja = (day) => {
 			const dataDay = ['senin', 'selasa', 'rabu', 'kamis', 'jumat'];
 			let cek = dataDay.find((item) => {
 				return item === day;
-		
 			});
 			if (cek) {
 				resolve(cek);
@@ -16,23 +15,22 @@ const cekHariKerja = (day) => {
 };
 
 //Method then() mengembalikan Promise dan menggunakan dua argumen: fungsi callback untuk kasus sukses dan gagal pada Promise. catch berfungsi untuk menghandle error
-cekHariKerja('sabtu')
+cekHariKerja('senin')
 	.then((message) => {
 		console.log(`resolve inside THEN: hari ${message} hari kerja`);
 	})
 	.catch((error) => {
-		console.log('error inside THEN: '+error.message);
+		console.log('error inside THEN: ' + error.message);
 	});
 
 //try berfungsi untuk menentukan blok kode yang akan diuji dan mengecek error ketika dieksekusi. catch berfungsi untuk menghandle error
-const cekTry = async () =>{
-try{
-const hariKerja = await cekHariKerja('sabtu')
-console.log(`cek TRY: hari ${hariKerja} hari kerja`)
-	
-} catch (error) {
-	console.log('error inside TRY: '+error.message);
-}
-}
+const cekTry = async () => {
+	try {
+		const hariKerja = await cekHariKerja('senin');
+		console.log(`cek TRY: hari ${hariKerja} hari kerja`);
+	} catch (error) {
+		console.log('error inside TRY: ' + error.message);
+	}
+};
 
-cekTry()
+cekTry();
