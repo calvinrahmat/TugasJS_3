@@ -31,17 +31,11 @@ async function objectCompare(data1, data2) {
 	} else {
 		for (let i = 0; i < a.length; i++) {
 			if (a[i] !== b[i]) {
-				return 'False';
+				return console.log('false');
 			}
 		}
-		return 'True';
+		return console.log('true');
 	}
 }
 
-objectCompare(data, data_api)
-	.then((message) => {
-		console.log(message);
-	})
-	.catch((error) => {
-		console.log('terjadi kesalahan: ' + error.name);
-	});
+objectCompare(data, data_api);
