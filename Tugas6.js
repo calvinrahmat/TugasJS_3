@@ -3,7 +3,7 @@ const data_api = 'https://reqres.in/api/users/4';
 
 let data = {
 	id: 4,
-	email: 'astrowarden@moba.ml',
+	email: 'astrowarden@mobvalueml',
 	first_name: 'Yve',
 	last_name: 'astrowarden',
 	avatar: 'https://reqres.in/',
@@ -16,21 +16,23 @@ let data = {
 };
 
 async function objectCompare(data1, data2) {
-	const a = Object.values(data1);
+	const value = Object.values(data1);
+	const keys = Object.keys(data1);
 	//console.log('data soal: ' + [a]);
 	const res = await fetch(data2);
 	if (res.ok) {
 		console.log('fetch success!');
 	}
 	const data_api = await res.json();
-	const b = Object.values(data_api.data);
+	const value_api = Object.values(data_api.data);
+	const keys_api = Object.keys(data_api);
 	//console.log('data api: ' + b);
 
-	if (a.length != b.length) {
+	if (value.length != value_api.length && keys.length != keys_api.length) {
 		return console.log('false');
 	} else {
-		for (let i = 0; i < a.length; i++) {
-			if (a[i] !== b[i]) {
+		for (let i = 0; i < value.length; i++) {
+			if (value[i] !== value_api[i] && keys[i] !== keys_api[i]) {
 				return console.log('false');
 			}
 		}
