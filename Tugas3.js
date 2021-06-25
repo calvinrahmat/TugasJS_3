@@ -8,6 +8,7 @@ let randomIndexSymbol = Math.floor(Math.random() * symbol.length);
 let randomSymbol = symbol.charAt(randomIndexSymbol);
 
 function checkPass(pass, level) {
+	let result = '';
 	let length = pass.length;
 	let newPass =
 		pass.charAt(0).toUpperCase() +
@@ -37,7 +38,7 @@ function checkPass(pass, level) {
 			randomCharGood = newPass + randomChar + randomNumber;
 			console.log(randomCharGood);
 		} else {
-			result = pass + randomNumber;
+			let result = pass + randomNumber;
 			console.log(result);
 		}
 	}
@@ -53,4 +54,4 @@ function checkPass(pass, level) {
 	}
 }
 
-checkPass('abcdef', 'low');
+checkPass('abcd', 'strong');
